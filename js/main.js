@@ -1,9 +1,9 @@
-require.config({
+require.config{
   paths : {
     underscore : 'lib/underscore',
     backbone   : 'lib/backbone',
     marionette : 'lib/backbone.marionette',
-    jquery     : '../../../../assets/jquery.min',
+    jquery     : 'lib/jquery',
     tpl        : 'lib/tpl'
   },
   shim : {
