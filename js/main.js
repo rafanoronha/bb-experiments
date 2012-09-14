@@ -1,4 +1,4 @@
-require.config{
+require.config({
   paths : {
     underscore : 'lib/underscore',
     backbone   : 'lib/backbone',
