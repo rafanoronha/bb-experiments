@@ -1,0 +1,6 @@
+== Backbone Experiments
+
+Application development experiments with Backbone.js.
+Including Backbone.Marionette and RequireJS. 
+
+Browse index-dev.html to see how it looks like.
