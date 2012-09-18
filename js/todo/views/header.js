@@ -4,12 +4,12 @@ define(['marionette','templates'], function (Marionette,templates) {
   "use strict";
 
   return Marionette.ItemView.extend({
-    template : templates.header,
+    template : templates.todo.header,
     ui : {
       input : '#new-todo'
     },
     events : {
-      'keypress #new-todo':		'onInputKeypress'
+      'keypress #new-todo' : 'onInputKeypress'
     },
     onInputKeypress : function(evt) {
       var ENTER_KEY = 13;

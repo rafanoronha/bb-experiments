@@ -3,7 +3,11 @@ define(['marionette'],function(marionette) {
 
   return marionette.AppRouter.extend({
     appRoutes:{
-      '*filter': 'setFilter'
+      '': 'home',
+      'developers': 'developers',
+      'developers/new': 'newDeveloper',
+      'todos': 'todos',
+      'todos/:filter': 'setFilter'
     }
   });
 

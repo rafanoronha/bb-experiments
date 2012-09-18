@@ -1,54 +1,42 @@
 /*global $*/
 define(
-  ['marionette','vent','collections/TodoList','views/Header','views/TodoListCompositeView','views/Footer'],
-  function(marionette, vent, TodoList, Header, TodoListCompositeView, Footer){
+  ['marionette','vent','ext','views/homeView','require'],
+  function(
+      marionette,
+      vent,
+      ext,
+      HomeView){
     "use strict";
 
-    var app = new marionette.Application(),
-        todoList = new TodoList();
-
-    app.bindTo(todoList, 'all', function() {
-      if (todoList.length === 0) {
-        app.main.$el.hide();
-        app.footer.$el.hide();
-      } else {
-        app.main.$el.show();
-        app.footer.$el.show();
-      }
-    });
+    var app = new marionette.Application();
 
     app.addRegions({
-      header : '#header',
-      main   : '#main',
-      footer : '#footer'
+      content : '#content',
     });
 
-    app.addInitializer(function(){
-
-      var viewOptions = {
-        collection : todoList
-      };
-
-      app.header.show(new Header(viewOptions));
-      app.main.show(new TodoListCompositeView(viewOptions));
-      app.footer.show(new Footer(viewOptions));
-
-      todoList.fetch();
+    vent.on('goto:home',function() {
+      app.content.show(new HomeView()); 
     });
 
-
-    vent.on('todoList:filter',function(filter) {
-      filter = filter || 'all';
-      $('#todoapp').attr('class', 'filter-' + filter);
+    vent.on('goto:developers',function() {
+      require(["developers/developers"], function(developers) {
+        developers.index();
+      });
     });
 
-    vent.on('todoList:clear:completed',function(){
-      function destroy(todo)     { todo.destroy(); }
+    vent.on('goto:developers:new',function() {
+      require(["developers/developers"], function(developers) {
+        developers.newDeveloper();
+      });
+    });
 
-      todoList.getCompleted().forEach(destroy);
+    vent.on('goto:todo',function() {
+      require(["todo/todoApp"], function(todoApp) {
+        todoApp.show();
+      });
     });
 
     return app;
 
   }
-);
+)

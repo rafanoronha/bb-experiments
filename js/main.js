@@ -4,7 +4,8 @@ require.config({
     backbone   : 'lib/backbone',
     marionette : 'lib/backbone.marionette',
     jquery     : 'lib/jquery',
-    tpl        : 'lib/tpl'
+    tpl        : 'lib/tpl',
+    bootstrap  : 'lib/bootstrap'
   },
   shim : {
     'lib/backbone-localStorage' : ['backbone'],

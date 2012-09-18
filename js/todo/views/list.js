@@ -1,11 +1,11 @@
 /*global define*/
 
-define(['marionette','templates','vent','views/TodoItemView'], function (Marionette,templates,vent,ItemView) {
+define(['marionette','templates','vent','todo/views/listItem'], function (Marionette,templates,vent,ListItem) {
   "use strict";
 
   return Marionette.CompositeView.extend({
-    template : templates.todosCompositeView,
-    itemView : ItemView,
+    template : templates.todo.list,
+    itemView : ListItem,
     itemViewContainer : '#todo-list',
 
     ui : {

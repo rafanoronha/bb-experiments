@@ -5,7 +5,7 @@ define(['marionette','templates'], function (Marionette,templates) {
 
   return Marionette.CompositeView.extend({
     tagName : 'li',
-    template : templates.todoItemView,
+    template : templates.todo.listItem,
 
     ui : {
       edit : '.edit'

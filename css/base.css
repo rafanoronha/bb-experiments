@@ -1,9 +1,9 @@
+/*
 html,
 body {
 	margin: 0;
 	padding: 0;
 }
-
 button {
 	margin: 0;
 	padding: 0;
@@ -14,7 +14,6 @@ button {
 	font-family: inherit;
 	color: inherit;
 	-webkit-appearance: none;
-	/*-moz-appearance: none;*/
 	-ms-appearance: none;
 	-o-appearance: none;
 	appearance: none;
@@ -33,6 +32,7 @@ body {
 	-o-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
+*/
 
 #todoapp {
 	background: #fff;
@@ -83,12 +83,12 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-#header {
+#todoAppHeader {
 	padding-top: 15px;
 	border-radius: inherit;
 }
 
-#header:before {
+#todoAppHeader:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -143,7 +143,7 @@ body {
 	box-shadow: none;
 }
 
-#main {
+#todoAppMain {
 	position: relative;
 	z-index: 2;
 	border-top: 1px dotted #adadad;
@@ -153,7 +153,7 @@ label[for='toggle-all'] {
 	display: none;
 }
 
-#toggle-all {
+#todoAppMain #toggle-all {
 	position: absolute;
 	top: -56px;
 	left: -15px;
@@ -173,14 +173,14 @@ label[for='toggle-all'] {
 	transform: rotate(90deg);
 }
 
-#toggle-all:before {
+#todoAppMain #toggle-all:before {
 	content: '»';
 	font-size: 28px;
 	color: #d9d9d9;
 	padding: 0 25px 7px;
 }
 
-#toggle-all:checked:before {
+#todoAppMain #toggle-all:checked:before {
 	color: #737373;
 }
 
@@ -310,7 +310,7 @@ label[for='toggle-all'] {
 	margin-bottom: -1px;
 }
 
-#footer {
+#todoAppFooter {
 	color: #777;
 	padding: 0 15px;
 	position: absolute;
@@ -322,7 +322,7 @@ label[for='toggle-all'] {
 	text-align: center;
 }
 
-#footer:before {
+#todoAppFooter:before {
 	content: '';
 	position: absolute;
 	right: 0;
