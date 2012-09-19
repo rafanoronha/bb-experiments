@@ -1,6 +1,10 @@
 define(
-  ['app','vent','developers/dev','developers/devList','developers/views/form','developers/views/list','marionette'],
-  function(app, vent, Dev, DevList, FormView, ListView, Marionette){
+  ['app',
+   'events/developers','events/global',
+   'developers/dev','developers/devList',
+   'developers/views/form','developers/views/list',
+   'marionette'],
+  function(app, developersEvents, globalEvents, Dev, DevList, FormView, ListView, Marionette){
     "use strict";
 
     var dev;
@@ -18,16 +22,16 @@ define(
       app.content.show(view);
     }
 
-    vent.developers.bindTo('goto:developers', function() {
+    developersEvents.bindTo('goto:developers', function() {
       index(); 
     });
 
-    vent.developers.bindTo('goto:developers:new', function() {
+    developersEvents.bindTo('goto:developers:new', function() {
       newDeveloper(); 
     });
 
     // When a dev is saved, navigate to /developers
-    vent.global.on('model:post:save',function(model, resp) {
+    globalEvents.on('model:post:save',function(model, resp) {
       if (dev === model) {
         devList.add(dev);
         Marionette.AppRouter.prototype.navigate("developers", { trigger: true });

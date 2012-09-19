@@ -1,7 +1,11 @@
 define(
-  ['app','vent','todo/todoList','todo/views/header','todo/views/footer','todo/views/list','todo/views/todoApp','marionette'],
+  ['app',
+   'events/todo',
+   'todo/todoList',
+   'todo/views/header','todo/views/footer','todo/views/list','todo/views/todoApp',
+   'marionette'],
   function(
-      app, vent, TodoList, Header, Footer, ListView, TodoAppView){
+      app, todoEvents, TodoList, Header, Footer, ListView, TodoAppView){
     "use strict";
 
     var todoList = new TodoList(); 
@@ -21,16 +25,16 @@ define(
       todoList.fetch();
     }
 
-    vent.todo.bindTo('goto:todo', function() {
+    todoEvents.bindTo('goto:todo', function() {
       index(); 
     });
 
-    vent.todo.bindTo('todoList:filter',function(filter) {
+    todoEvents.bindTo('todoList:filter',function(filter) {
       filter = filter || 'all';
       $('#todoapp').attr('class', 'filter-' + filter);
     });
 
-    vent.todo.bindTo('todoList:clear:completed',function(){
+    todoEvents.bindTo('todoList:clear:completed',function(){
       function destroy(todo) { todo.destroy(); }
       todoList.getCompleted().forEach(destroy);
     });

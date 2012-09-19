@@ -1,6 +1,6 @@
 /*global define, $*/
 
-define(['marionette','vent','templates','todo/views/activeCount'], function (Marionette,vent,templates,ActiveCount) {
+define(['marionette','events/todo','templates','todo/views/activeCount'], function (Marionette,todoEvents,templates,ActiveCount) {
   "use strict"; 
   return Marionette.Layout.extend({
     template : templates.todo.footer,
@@ -14,7 +14,7 @@ define(['marionette','vent','templates','todo/views/activeCount'], function (Mar
       'click #clear-completed' : 'onClearClick'
     },
     initialize : function() {
-      this.bindTo(vent.todo, 'todoList:filter', this.updateFilterSelection, this);
+      this.bindTo(todoEvents, 'todoList:filter', this.updateFilterSelection, this);
     },
     onRender : function() {
       this.count.show(new ActiveCount({collection : this.collection}));
@@ -29,7 +29,7 @@ define(['marionette','vent','templates','todo/views/activeCount'], function (Mar
       this.ui.filters.removeClass('selected').filter(selectedFilterSelector).addClass('selected');
     },
     onClearClick : function() {
-      vent.todo.trigger('todoList:clear:completed');
+      todoEvents.trigger('todoList:clear:completed');
     }
   });
 

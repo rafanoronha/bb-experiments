@@ -1,4 +1,4 @@
-require(['backbone', 'vent'],function(Backbone, vent){
+require(['backbone', 'events/global'],function(Backbone, globalEvents){
   "use strict";
   
   var saveFunc = Backbone.Model.prototype.save;
@@ -14,7 +14,7 @@ require(['backbone', 'vent'],function(Backbone, vent){
       options = options ? _.clone(options) : {};
 
       options.success = function(model, resp) {
-        vent.global.trigger('model:post:save', model, resp);
+        globalEvents.trigger('model:post:save', model, resp);
       };
 
       if (hashCallStyle) {

@@ -1,29 +1,30 @@
 /*global define*/
 
-define(['vent'], function (vent) {
+define(['events/todo','events/developers','events/global'],
+  function (todoEvents, developersEvents, globalEvents) {
   "use strict";
 
   return {
 
     home: function(param) {
-      vent.global.trigger('goto:home') 
+      globalEvents.trigger('goto:home') 
     },
 
     todos: function(param) {
-      vent.todo.trigger('goto:todo') 
+      todoEvents.trigger('goto:todo') 
     },
 
     setFilter : function(param) {
       var filter = param.replace(/todos\//, '');
-      vent.todo.trigger('todoList:filter', filter || '');
+      todoEvents.trigger('todoList:filter', filter || '');
     },
 
     developers: function(param) {
-      vent.developers.trigger('goto:developers');
+      developersEvents.trigger('goto:developers');
     },
 
     newDeveloper: function(param) {
-      vent.developers.trigger('goto:developers:new');
+      developersEvents.trigger('goto:developers:new');
     }
 
   };
