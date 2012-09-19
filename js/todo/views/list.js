@@ -1,6 +1,6 @@
 /*global define*/
 
-define(['marionette','templates','vent','todo/views/listItem'], function (Marionette,templates,vent,ListItem) {
+define(['marionette','templates','todo/views/listItem'], function (Marionette,templates,ListItem) {
   "use strict";
 
   return Marionette.CompositeView.extend({
