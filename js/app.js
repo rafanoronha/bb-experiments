@@ -14,26 +14,22 @@ define(
       content : '#content',
     });
 
-    vent.on('goto:home',function() {
+    var todoBinding = vent.todo.bindTo('all', function(e) {
+      require(["todo/todoApp"], function() {
+        vent.todo.unbindFrom(todoBinding); 
+        vent.todo.trigger(e);
+      });
+    });
+
+    var developersBinding = vent.developers.bindTo('all', function(e) {
+      require(["developers/developers"], function() {
+        vent.developers.unbindFrom(developersBinding); 
+        vent.developers.trigger(e);
+      });
+    });
+
+    vent.global.on('goto:home',function() {
       app.content.show(new HomeView()); 
-    });
-
-    vent.on('goto:developers',function() {
-      require(["developers/developers"], function(developers) {
-        developers.index();
-      });
-    });
-
-    vent.on('goto:developers:new',function() {
-      require(["developers/developers"], function(developers) {
-        developers.newDeveloper();
-      });
-    });
-
-    vent.on('goto:todo',function() {
-      require(["todo/todoApp"], function(todoApp) {
-        todoApp.show();
-      });
     });
 
     return app;

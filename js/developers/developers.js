@@ -7,27 +7,32 @@ define(
 
     var devList = new DevList(); 
     devList.fetch();
+    
+    function index() {
+      app.content.show(new ListView({collection: devList}));
+    }
 
-    var developers = {
-      index: function() {
-        app.content.show(new ListView({collection: devList}));
-      },
+    function newDeveloper() {
+      dev = new Dev();
+      var view = new FormView({model: dev});     
+      app.content.show(view);
+    }
 
-      newDeveloper: function() {
-        dev = new Dev();
-        var view = new FormView({model: dev});     
-        app.content.show(view);
-      }
-    };
+    vent.developers.bindTo('goto:developers', function() {
+      index(); 
+    });
+
+    vent.developers.bindTo('goto:developers:new', function() {
+      newDeveloper(); 
+    });
 
     // When a dev is saved, navigate to /developers
-    vent.on('model:post:save',function(model, resp) {
+    vent.global.on('model:post:save',function(model, resp) {
       if (dev === model) {
         devList.add(dev);
         Marionette.AppRouter.prototype.navigate("developers", { trigger: true });
       }
     });
 
-    return developers;
   }
 );

@@ -6,24 +6,24 @@ define(['vent'], function (vent) {
   return {
 
     home: function(param) {
-      vent.trigger('goto:home') 
+      vent.global.trigger('goto:home') 
     },
 
     todos: function(param) {
-      vent.trigger('goto:todo') 
+      vent.todo.trigger('goto:todo') 
     },
 
     setFilter : function(param) {
       var filter = param.replace(/todos\//, '');
-      vent.trigger('todoList:filter', filter || '');
+      vent.todo.trigger('todoList:filter', filter || '');
     },
 
     developers: function(param) {
-      vent.trigger('goto:developers');
+      vent.developers.trigger('goto:developers');
     },
 
     newDeveloper: function(param) {
-      vent.trigger('goto:developers:new');
+      vent.developers.trigger('goto:developers:new');
     }
 
   };

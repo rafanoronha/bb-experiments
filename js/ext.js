@@ -14,7 +14,7 @@ require(['backbone', 'vent'],function(Backbone, vent){
       options = options ? _.clone(options) : {};
 
       options.success = function(model, resp) {
-        vent.trigger('model:post:save', model, resp);
+        vent.global.trigger('model:post:save', model, resp);
       };
 
       if (hashCallStyle) {

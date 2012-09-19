@@ -6,33 +6,34 @@ define(
 
     var todoList = new TodoList(); 
 
-    var todoApp = {
-      show: function() {
-        var viewOptions = {
-          collection : todoList
-        };
+    function index() {
+      var viewOptions = {
+        collection : todoList
+      };
 
-        var todoAppView = new TodoAppView(viewOptions);
-        app.content.show(todoAppView);   
+      var todoAppView = new TodoAppView(viewOptions);
+      app.content.show(todoAppView);   
 
-        todoAppView.todoAppHeader.show(new Header(viewOptions));
-        todoAppView.todoAppMain.show(new ListView(viewOptions));
-        todoAppView.todoAppFooter.show(new Footer(viewOptions));
+      todoAppView.todoAppHeader.show(new Header(viewOptions));
+      todoAppView.todoAppMain.show(new ListView(viewOptions));
+      todoAppView.todoAppFooter.show(new Footer(viewOptions));
 
-        todoList.fetch();
-      }
-    };
+      todoList.fetch();
+    }
 
-    vent.on('todoList:filter',function(filter) {
+    vent.todo.bindTo('goto:todo', function() {
+      index(); 
+    });
+
+    vent.todo.bindTo('todoList:filter',function(filter) {
       filter = filter || 'all';
       $('#todoapp').attr('class', 'filter-' + filter);
     });
 
-    vent.on('todoList:clear:completed',function(){
-      function destroy(todo)     { todo.destroy(); }
+    vent.todo.bindTo('todoList:clear:completed',function(){
+      function destroy(todo) { todo.destroy(); }
       todoList.getCompleted().forEach(destroy);
     });
 
-    return todoApp;
   }
 );
