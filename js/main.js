@@ -9,6 +9,7 @@ require.config({
   },
   shim : {
     'lib/backbone-localStorage' : ['backbone'],
+    'lib/backbone-relational'   : ['backbone'],
     underscore : {
       exports : '_'
     },

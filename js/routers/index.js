@@ -12,6 +12,7 @@ define(
       'developers/new': 'newDeveloper',
       'products': 'products',
       'products/:id': 'showProduct',
+      'shoppingcart': 'shoppingCart',
       'todos': 'todos',
       'todos/:filter': 'setFilter'
     }

@@ -39,6 +39,10 @@ define(
 
     showProduct: function(id) {
       ecommerceEvents.trigger('goto:products:show', id);
+    },
+
+    shoppingCart: function() {
+      ecommerceEvents.trigger('goto:cart');
     }
 
   };

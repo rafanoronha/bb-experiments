@@ -22,6 +22,11 @@ define(function(require){
       list:                     require('tpl!ecommerce/templates/list.tmpl'),
       listItem:                 require('tpl!ecommerce/templates/listItem.tmpl'),
       show:                     require('tpl!ecommerce/templates/show.tmpl')
+    },
+
+    cart: {
+      cart:                     require('tpl!ecommerce/cart/templates/cart.tmpl'),
+      cartItem:                 require('tpl!ecommerce/cart/templates/cartItem.tmpl')
     }
 
   };

@@ -6,7 +6,8 @@ define(
    'ecommerce/productList',
    'ecommerce/views/list',
    'ecommerce/views/listItem',
-   'ecommerce/views/show'
+   'ecommerce/views/show',
+   'ecommerce/cart/cart'
   ], function(app, ecommerceEvents, Product, ProductList, ListView, ListItemView, ShowView){
 
   "use strict";
