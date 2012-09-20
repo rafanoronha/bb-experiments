@@ -1,6 +1,12 @@
 /*global define*/
 
-define(['marionette','templates','developers/views/listItem'], function (Marionette,templates,ListItem) {
+define(
+  [
+   'marionette',
+   'templates',
+   'developers/views/listItem'
+  ], function (Marionette,templates,ListItem) {
+
   "use strict";
 
   return Marionette.CompositeView.extend({
@@ -37,5 +43,5 @@ define(['marionette','templates','developers/views/listItem'], function (Marione
       });
     }
   });
-});
 
+});

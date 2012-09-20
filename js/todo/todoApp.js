@@ -1,11 +1,15 @@
 define(
-  ['app',
+  [
+   'app',
    'events/todo',
    'todo/todoList',
-   'todo/views/header','todo/views/footer','todo/views/list','todo/views/todoApp',
-   'marionette'],
-  function(
-      app, todoEvents, TodoList, Header, Footer, ListView, TodoAppView){
+   'todo/views/header',
+   'todo/views/footer',
+   'todo/views/list',
+   'todo/views/todoApp',
+   'marionette'
+  ], function(app, todoEvents, TodoList, Header, Footer, ListView, TodoAppView){
+
     "use strict";
 
     var todoList = new TodoList(); 
@@ -39,5 +43,4 @@ define(
       todoList.getCompleted().forEach(destroy);
     });
 
-  }
-);
+});

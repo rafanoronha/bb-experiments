@@ -1,6 +1,11 @@
 /*global define*/
 
-define(['marionette','templates'], function (Marionette,templates) {
+define(
+  [
+   'marionette',
+   'templates'
+  ], function (Marionette,templates) {
+
   "use strict";
 
   return Marionette.Layout.extend({

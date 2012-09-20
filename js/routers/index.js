@@ -1,4 +1,8 @@
-define(['marionette'],function(marionette) {
+define(
+  [
+   'marionette'
+  ], function(marionette) {
+
   'use strict';
 
   return marionette.AppRouter.extend({
@@ -9,6 +13,7 @@ define(['marionette'],function(marionette) {
       'todos': 'todos',
       'todos/:filter': 'setFilter'
     }
+
   });
 
 });

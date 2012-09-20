@@ -1,7 +1,12 @@
 /*global define*/
 
-define(['events/todo','events/developers','events/global'],
-  function (todoEvents, developersEvents, globalEvents) {
+define(
+  [
+   'events/todo',
+   'events/developers',
+   'events/global'
+  ], function (todoEvents, developersEvents, globalEvents) {
+
   "use strict";
 
   return {

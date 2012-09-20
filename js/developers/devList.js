@@ -1,4 +1,10 @@
-define(['backbone','developers/dev','lib/backbone-localStorage'],function(Backbone,Dev) {
+define(
+  [
+   'backbone',
+   'developers/dev',
+   'lib/backbone-localStorage'
+  ], function(Backbone,Dev) {
+
   'use strict';
 
   return Backbone.Collection.extend({
@@ -9,6 +15,7 @@ define(['backbone','developers/dev','lib/backbone-localStorage'],function(Backbo
     comparator: function( todo ) {
       return todo.get('created');
     }
+
   });
 
 });

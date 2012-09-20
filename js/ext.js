@@ -1,4 +1,9 @@
-require(['backbone', 'events/global'],function(Backbone, globalEvents){
+require(
+  [
+   'backbone',
+   'events/global'
+  ], function(Backbone, globalEvents){
+
   "use strict";
   
   var saveFunc = Backbone.Model.prototype.save;
@@ -24,9 +29,6 @@ require(['backbone', 'events/global'],function(Backbone, globalEvents){
       }
     }  
 
-
   });
-
-
 
 });

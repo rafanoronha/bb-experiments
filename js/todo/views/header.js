@@ -1,6 +1,11 @@
 /*global define*/
 
-define(['marionette','templates'], function (Marionette,templates) {
+define(
+  [
+   'marionette',
+   'templates'
+  ], function (Marionette,templates) {
+
   "use strict";
 
   return Marionette.ItemView.extend({
@@ -8,9 +13,11 @@ define(['marionette','templates'], function (Marionette,templates) {
     ui : {
       input : '#new-todo'
     },
+
     events : {
       'keypress #new-todo' : 'onInputKeypress'
     },
+
     onInputKeypress : function(evt) {
       var ENTER_KEY = 13;
       var todoText = this.ui.input.val().trim();
@@ -22,6 +29,7 @@ define(['marionette','templates'], function (Marionette,templates) {
         this.ui.input.val('');
       }
     }
+
   });
 
 });

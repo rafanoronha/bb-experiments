@@ -1,6 +1,12 @@
 /*global define*/
 
-define(['marionette','templates','todo/views/listItem'], function (Marionette,templates,ListItem) {
+define(
+  [
+   'marionette',
+   'templates',
+   'todo/views/listItem'
+  ], function (Marionette,templates,ListItem) {
+
   "use strict";
 
   return Marionette.CompositeView.extend({
@@ -36,6 +42,7 @@ define(['marionette','templates','todo/views/listItem'], function (Marionette,te
         todo.save({'completed': isChecked});
       });
     }
-  });
-});
 
+  });
+
+});

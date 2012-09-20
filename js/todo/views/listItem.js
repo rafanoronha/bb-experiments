@@ -1,6 +1,11 @@
 /*global define*/
 
-define(['marionette','templates'], function (Marionette,templates) {
+define(
+  [
+   'marionette',
+   'templates'
+  ], function (Marionette,templates) {
+
   "use strict";
 
   return Marionette.CompositeView.extend({
@@ -50,5 +55,7 @@ define(['marionette','templates'], function (Marionette,templates) {
         this.$el.removeClass('editing');
       }
     }
+
   });
+
 });

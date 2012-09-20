@@ -1,4 +1,10 @@
-define(['backbone','todo/todo','lib/backbone-localStorage'],function(Backbone,Todo) {
+define(
+  [
+   'backbone',
+   'todo/todo',
+   'lib/backbone-localStorage'
+  ], function(Backbone,Todo) {
+
   'use strict';
 
   function isCompleted(todo) { return todo.get('completed'); }
@@ -10,12 +16,15 @@ define(['backbone','todo/todo','lib/backbone-localStorage'],function(Backbone,To
     getCompleted: function() {
       return this.filter(isCompleted);
     },
+
     getActive: function() {
       return this.reject(isCompleted);
     },
+
     comparator: function( todo ) {
       return todo.get('created');
     }
+
   });
 
 });
