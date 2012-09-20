@@ -17,7 +17,10 @@ define(
     },
 
     onRender : function() {
-      this.ui.link.attr('href', '#/products/' + this.model.get('id'));
+      //FIXME this is wrong
+      var url = '#/products/'; 
+
+      this.ui.link.attr('href', url + this.model.get('id'));
     }
 
   });
