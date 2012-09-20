@@ -4,8 +4,9 @@ define(
   [
    'events/todo',
    'events/developers',
+   'events/ecommerce',
    'events/global'
-  ], function (todoEvents, developersEvents, globalEvents) {
+  ], function (todoEvents, developersEvents, ecommerceEvents, globalEvents) {
 
   "use strict";
 
@@ -30,6 +31,14 @@ define(
 
     newDeveloper: function(param) {
       developersEvents.trigger('goto:developers:new');
+    },
+
+    products: function(param) {
+      ecommerceEvents.trigger('goto:products');
+    },
+
+    showProduct: function(id) {
+      ecommerceEvents.trigger('goto:products:show', id);
     }
 
   };

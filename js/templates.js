@@ -16,6 +16,12 @@ define(function(require){
       list:                     require('tpl!developers/templates/list.tmpl'),
       listItem:                 require('tpl!developers/templates/listItem.tmpl'),
       form:                     require('tpl!developers/templates/form.tmpl')
+    },
+
+    products: {
+      list:                     require('tpl!ecommerce/templates/list.tmpl'),
+      listItem:                 require('tpl!ecommerce/templates/listItem.tmpl'),
+      show:                     require('tpl!ecommerce/templates/show.tmpl')
     }
 
   };
