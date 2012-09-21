@@ -3,6 +3,7 @@ require.config({
     underscore : 'lib/underscore',
     backbone   : 'lib/backbone',
     marionette : 'lib/backbone.marionette',
+    component  : 'lib/component',
     jquery     : 'lib/jquery',
     tpl        : 'lib/tpl',
     bootstrap  : 'lib/bootstrap'

@@ -3,10 +3,9 @@
 define(
   [
    'events/todo',
-   'events/developers',
    'events/ecommerce',
    'events/global'
-  ], function (todoEvents, developersEvents, ecommerceEvents, globalEvents) {
+  ], function (todoEvents, ecommerceEvents, globalEvents) {
 
   "use strict";
 
@@ -23,14 +22,6 @@ define(
     setFilter : function(param) {
       var filter = param.replace(/todos\//, '');
       todoEvents.trigger('todoList:filter', filter || '');
-    },
-
-    developers: function(param) {
-      developersEvents.trigger('goto:developers');
-    },
-
-    newDeveloper: function(param) {
-      developersEvents.trigger('goto:developers:new');
     },
 
     products: function(param) {

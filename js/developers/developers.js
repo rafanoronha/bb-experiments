@@ -1,14 +1,12 @@
 define(
   [
    'app',
-   'events/developers',
-   'events/global',
    'developers/dev',
    'developers/devList',
    'developers/views/form',
    'developers/views/list',
    'marionette'
-  ], function(app, developersEvents, globalEvents, Dev, DevList, FormView, ListView, Marionette){
+  ], function(app, Dev, DevList, FormView, ListView, Marionette){
 
   "use strict";
 
@@ -26,21 +24,27 @@ define(
     var view = new FormView({model: dev});     
     app.content.show(view);
   }
+ 
+  var Component = function() {
+    this.init = function() {
+      this.channel.on('goto:developers', function() {
+        index(); 
+      });
 
-  developersEvents.bindTo('goto:developers', function() {
-    index(); 
-  });
+      this.channel.on('goto:developers:new', function() {
+        newDeveloper(); 
+      });
 
-  developersEvents.bindTo('goto:developers:new', function() {
-    newDeveloper(); 
-  });
-
-  // When a dev is saved, navigate to /developers
-  globalEvents.on('model:post:save',function(model, resp) {
-    if (dev === model) {
-      devList.add(dev);
-      Marionette.AppRouter.prototype.navigate("developers", { trigger: true });
+      // When a dev is saved, navigate to /developers
+      this.global.on('model:post:save',function(model, resp) {
+        if (dev === model) {
+          devList.add(dev);
+          Marionette.AppRouter.prototype.navigate("developers", { trigger: true });
+        }
+      });
     }
-  });
+  };
+
+  return new Component();
 
 });

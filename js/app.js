@@ -5,11 +5,11 @@ define(
    'ext',
    'views/homeView',
    'events/todo',
-   'events/developers',
+   'initializers/developers',
    'events/ecommerce',
    'events/global',
    'require'
-  ], function(marionette, ext, HomeView, todoEvents, developersEvents, ecommerceEvents, globalEvents){
+  ], function(marionette, ext, HomeView, todoEvents, developersInitializer, ecommerceEvents, globalEvents){
 
   "use strict";
 
@@ -27,13 +27,7 @@ define(
     });
   });
 
-  var developersBinding = developersEvents.bindTo('all', function() {
-    var that = this, args = arguments;
-    require(["developers/developers"], function() {
-      developersEvents.unbindFrom(developersBinding); 
-      developersEvents.trigger.apply(that, args);
-    });
-  });
+  app.addInitializer(developersInitializer);
 
   var ecommerceBinding = ecommerceEvents.bindTo('all', function() {
     var that = this, args = arguments;

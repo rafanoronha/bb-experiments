@@ -8,8 +8,6 @@ define(
   return marionette.AppRouter.extend({
     appRoutes:{
       '': 'home',
-      'developers': 'developers',
-      'developers/new': 'newDeveloper',
       'products': 'products',
       'products/:id': 'showProduct',
       'shoppingcart': 'shoppingCart',
