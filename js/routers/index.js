@@ -10,9 +10,7 @@ define(
       '': 'home',
       'products': 'products',
       'products/:id': 'showProduct',
-      'shoppingcart': 'shoppingCart',
-      'todos': 'todos',
-      'todos/:filter': 'setFilter'
+      'shoppingcart': 'shoppingCart'
     }
 
   });

@@ -4,12 +4,12 @@ define(
    'marionette',
    'ext',
    'views/homeView',
-   'events/todo',
+   'initializers/todo',
    'initializers/developers',
    'events/ecommerce',
    'events/global',
    'require'
-  ], function(marionette, ext, HomeView, todoEvents, developersInitializer, ecommerceEvents, globalEvents){
+  ], function(marionette, ext, HomeView, todoInitializer, developersInitializer, ecommerceEvents, globalEvents){
 
   "use strict";
 
@@ -19,14 +19,7 @@ define(
     content : '#content'
   });
 
-  var todoBinding = todoEvents.bindTo('all', function() {
-    var that = this, args = arguments;
-    require(["todo/todoApp"], function() {
-      todoEvents.unbindFrom(todoBinding); 
-      todoEvents.trigger.apply(that, args);
-    });
-  });
-
+  app.addInitializer(todoInitializer);
   app.addInitializer(developersInitializer);
 
   var ecommerceBinding = ecommerceEvents.bindTo('all', function() {

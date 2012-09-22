@@ -1,22 +1,22 @@
 define(
   [
    'app',
-   'events/todo',
    'todo/todoList',
    'todo/views/header',
    'todo/views/footer',
    'todo/views/list',
    'todo/views/todoApp',
    'marionette'
-  ], function(app, todoEvents, TodoList, Header, Footer, ListView, TodoAppView){
+  ], function(app, TodoList, Header, Footer, ListView, TodoAppView){
 
   "use strict";
 
-  var todoList = new TodoList(); 
-
+  var todoList = new TodoList();
+ 
   function index() {
     var viewOptions = {
-      collection : todoList
+      collection : todoList,
+      component: todoApp.component
     };
 
     var todoAppView = new TodoAppView(viewOptions);
@@ -29,18 +29,26 @@ define(
     todoList.fetch();
   }
 
-  todoEvents.bindTo('goto:todo', function() {
-    index(); 
-  });
+  var TodoApp = function() {
+    this.init = function() {
 
-  todoEvents.bindTo('todoList:filter',function(filter) {
-    filter = filter || 'all';
-    $('#todoapp').attr('class', 'filter-' + filter);
-  });
+      this.channel.on('goto:todo', function() {
+        index(); 
+      });
 
-  todoEvents.bindTo('todoList:clear:completed',function(){
-    function destroy(todo) { todo.destroy(); }
-    todoList.getCompleted().forEach(destroy);
-  });
+      this.channel.on('todoList:filter',function(filter) {
+        filter = filter || 'all';
+        $('#todoapp').attr('class', 'filter-' + filter);
+      });
+
+      this.channel.on('todoList:clear:completed',function(){
+        function destroy(todo) { todo.destroy(); }
+        todoList.getCompleted().forEach(destroy);
+      });
+
+    };
+  };
+  var todoApp = new TodoApp();
+  return todoApp;
 
 });

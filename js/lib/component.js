@@ -32,6 +32,7 @@ define(
       var args = Array.prototype.slice.call(arguments);
 
       _.each(args, function(obj) {
+        obj.component = this;
         _.each(this.channels, function(channel) {
           var key = _.keys(channel)[0]
           var value = channel[key];

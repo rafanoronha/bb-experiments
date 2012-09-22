@@ -5,6 +5,17 @@ require(
   ], function(Backbone, globalEvents){
 
   "use strict";
+
+  var viewCtor = Backbone.View.prototype.constructor;
+  // Embraces a view into a component received through `options.component`.
+  Backbone.View = Backbone.View.extend({
+    constructor: function(options) {
+      if(options && options.component) {
+        options.component.embrace(this);
+      } 
+      viewCtor.apply(this, arguments);
+    }
+  });
   
   var saveFunc = Backbone.Model.prototype.save;
   // Extends the save operation in order to trigger a `model:post:save` event through `vent` event dispatcher.

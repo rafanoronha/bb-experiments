@@ -42,7 +42,7 @@ define(
           Marionette.AppRouter.prototype.navigate("developers", { trigger: true });
         }
       });
-    }
+    };
   };
 
   return new Component();
