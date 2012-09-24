@@ -1,13 +1,19 @@
 define(
   [
-   'marionette'
-  ], function(marionette) {
+   'backbone',
+   'events/global'
+  ], function(Backbone, globalEvents) {
 
   'use strict';
 
-  return marionette.AppRouter.extend({
-    appRoutes:{
+  return Backbone.Router.extend({
+
+    routes:{
       '': 'home'
+    },
+
+    home: function(param) {
+      globalEvents.trigger('nav:home') 
     }
 
   });

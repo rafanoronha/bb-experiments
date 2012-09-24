@@ -30,17 +30,14 @@ require(
   [
    'app',
    'backbone',
-   'routers/index',
-   'controllers/index'
-  ], function(app,Backbone,Router,Controller){
+   'routers/index'
+  ], function(app,Backbone,Router){
 
   "use strict";
 
   app.start();
 
-  new Router({
-    controller : Controller
-  });
+  new Router();
 
   Backbone.history.start();
 
