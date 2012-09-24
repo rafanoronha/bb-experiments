@@ -12,7 +12,7 @@ define(
     var router = new Router();
 
     var component = new Component({
-      name: "developers/developers",
+      name: "developers/component",
 
       channels: {
         global: globalEvents

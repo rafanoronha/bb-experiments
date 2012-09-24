@@ -12,7 +12,7 @@ define(
     var router = new Router();
 
     var component = new Component({
-      name: "todo/todoApp",
+      name: "todo/component",
 
       channels: {
         global: globalEvents

@@ -13,7 +13,7 @@ define(
     var router = new Router();
 
     var component = new Component({
-      name: "ecommerce/products/products",
+      name: "ecommerce/products/component",
 
       channels: {
         cart: cartEvents,
