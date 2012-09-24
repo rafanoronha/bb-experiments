@@ -4,12 +4,11 @@ define(
    'marionette',
    'ext',
    'views/homeView',
-   'initializers/todo',
-   'initializers/developers',
+   'initializers',
    'events/ecommerce',
    'events/global',
    'require'
-  ], function(marionette, ext, HomeView, todoInitializer, developersInitializer, ecommerceEvents, globalEvents){
+  ], function(marionette, ext, HomeView, initializers, ecommerceEvents, globalEvents){
 
   "use strict";
 
@@ -19,8 +18,8 @@ define(
     content : '#content'
   });
 
-  app.addInitializer(todoInitializer);
-  app.addInitializer(developersInitializer);
+  app.addInitializer(initializers.todo);
+  app.addInitializer(initializers.developers);
 
   var ecommerceBinding = ecommerceEvents.bindTo('all', function() {
     var that = this, args = arguments;
