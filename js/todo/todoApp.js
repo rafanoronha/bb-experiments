@@ -48,6 +48,7 @@ define(
 
     };
   };
+
   var todoApp = new TodoApp();
   return todoApp;
 

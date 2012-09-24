@@ -7,10 +7,7 @@ define(
 
   return marionette.AppRouter.extend({
     appRoutes:{
-      '': 'home',
-      'products': 'products',
-      'products/:id': 'showProduct',
-      'shoppingcart': 'shoppingCart'
+      '': 'home'
     }
 
   });

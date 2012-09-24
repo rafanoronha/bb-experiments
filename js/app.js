@@ -5,10 +5,9 @@ define(
    'ext',
    'views/homeView',
    'initializers',
-   'events/ecommerce',
    'events/global',
    'require'
-  ], function(marionette, ext, HomeView, initializers, ecommerceEvents, globalEvents){
+  ], function(marionette, ext, HomeView, initializers, globalEvents){
 
   "use strict";
 
@@ -20,14 +19,8 @@ define(
 
   app.addInitializer(initializers.todo);
   app.addInitializer(initializers.developers);
-
-  var ecommerceBinding = ecommerceEvents.bindTo('all', function() {
-    var that = this, args = arguments;
-    require(["ecommerce/ecommerce"], function() {
-      ecommerceEvents.unbindFrom(ecommerceBinding); 
-      ecommerceEvents.trigger.apply(that, args);
-    });
-  });
+  app.addInitializer(initializers.ecommerce.products);
+  app.addInitializer(initializers.ecommerce.cart);
 
   globalEvents.on('goto:home',function() {
     app.content.show(new HomeView()); 

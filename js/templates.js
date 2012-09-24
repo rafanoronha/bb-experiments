@@ -19,9 +19,9 @@ define(function(require){
     },
 
     products: {
-      list:                     require('tpl!ecommerce/templates/list.tmpl'),
-      listItem:                 require('tpl!ecommerce/templates/listItem.tmpl'),
-      show:                     require('tpl!ecommerce/templates/show.tmpl')
+      list:                     require('tpl!ecommerce/products/templates/list.tmpl'),
+      listItem:                 require('tpl!ecommerce/products/templates/listItem.tmpl'),
+      show:                     require('tpl!ecommerce/products/templates/show.tmpl')
     },
 
     cart: {

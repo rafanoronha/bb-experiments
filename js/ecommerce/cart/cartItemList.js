@@ -1,7 +1,7 @@
 define(
   [
    'backbone',
-   'ecommerce/product',
+   'ecommerce/products/product',
    'lib/backbone-localStorage'
   ], function(Backbone,Product) {
 

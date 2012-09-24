@@ -45,12 +45,18 @@ define(
     _configure: function(options) {
       this.channels = options.channels || [];
 
-      var componentChannel = {
-        channel: _.extend({}, Backbone.Events)
-      };
+      var componentChannelObj = _.find(this.channels, function(ch) {
+        return 'component' === _.keys(ch)[0];
+      });
+      if (componentChannelObj) {
+        componentChannelObj['channel'] = componentChannelObj['component'];
+        delete componentChannelObj['component'];
+      } else {
+        componentChannelObj = { channel:  _.extend({}, Backbone.Events) };
+        this.channels.push(componentChannelObj);
+      }
 
-      this.channels.push(componentChannel);
-      this.componentChannel = componentChannel.channel;
+      this.componentChannel = componentChannelObj.channel;
     },
 
     // Embraces objects coming from `options`.

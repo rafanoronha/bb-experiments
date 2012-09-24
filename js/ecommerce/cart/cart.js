@@ -1,13 +1,12 @@
 define(
   [
    'app',
-   'events/ecommerce',
-   'ecommerce/product',
+   'ecommerce/products/product',
    'ecommerce/cart/cartItem',
    'ecommerce/cart/cartItemList',
    'ecommerce/cart/views/cart',
    'ecommerce/cart/views/cartItem'
-  ], function(app, ecommerceEvents, Product, CartItem, CartItemList, CartView, CartItemView){
+  ], function(app, Product, CartItem, CartItemList, CartView, CartItemView){
 
   "use strict";
 
@@ -26,12 +25,18 @@ define(
     cartItemList.add(item);
   }
 
-  ecommerceEvents.bindTo('goto:cart', function() {
-    show(); 
-  });
+  var Cart = function() {
+    this.init = function() {
+      this.channel.on('goto:cart', function() {
+        show(); 
+      });
 
-  ecommerceEvents.bindTo('action:addToCart', function(product) {
-    add(product); 
-  });
+      this.channel.on('action:addToCart', function(product) {
+        add(product);
+      });
+   };
+  };
+
+  return new Cart();
 
 });

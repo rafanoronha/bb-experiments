@@ -3,9 +3,8 @@
 define(
   [
    'marionette',
-   'templates',
-   'events/ecommerce'
-  ], function (Marionette,templates,ecommerceEvents) {
+   'templates'
+  ], function (Marionette,templates) {
 
   "use strict";
 
@@ -17,7 +16,7 @@ define(
     },
 
     addToCart: function(model) {
-      ecommerceEvents.trigger('action:addToCart', model);
+      this.cart.trigger('action:addToCart', model);
       return false;
     }
 

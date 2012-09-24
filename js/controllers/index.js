@@ -2,9 +2,8 @@
 
 define(
   [
-   'events/ecommerce',
    'events/global'
-  ], function (ecommerceEvents, globalEvents) {
+  ], function (globalEvents) {
 
   "use strict";
 
@@ -12,18 +11,6 @@ define(
 
     home: function(param) {
       globalEvents.trigger('goto:home') 
-    },
-
-    products: function(param) {
-      ecommerceEvents.trigger('goto:products');
-    },
-
-    showProduct: function(id) {
-      ecommerceEvents.trigger('goto:products:show', id);
-    },
-
-    shoppingCart: function() {
-      ecommerceEvents.trigger('goto:cart');
     }
 
   };

@@ -4,7 +4,7 @@ define(
   [
    'marionette',
    'templates',
-   'ecommerce/views/listItem'
+   'ecommerce/products/views/listItem'
   ], function (Marionette,templates,ListItem) {
 
   "use strict";
