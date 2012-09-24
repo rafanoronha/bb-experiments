@@ -15,10 +15,10 @@ define(
     var component = new Component({
       name: "ecommerce/products/products",
 
-      channels: [
-        { cart: cartEvents },
-        { global: globalEvents }
-      ],
+      channels: {
+        cart: cartEvents,
+        global: globalEvents
+      },
 
       embrace: [
         router

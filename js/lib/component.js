@@ -33,30 +33,19 @@ define(
 
       _.each(args, function(obj) {
         obj.component = this;
-        _.each(this.channels, function(channel) {
-          var key = _.keys(channel)[0]
-          var value = channel[key];
-          obj[key] = value;
-        });
+        obj.channels = this.channels;
+        obj.channel = obj.channels.component;
       }, this);
     },
 
     // Configure this component through the provided `options`.
     _configure: function(options) {
-      this.channels = options.channels || [];
+      this.channels = options.channels || {};
 
-      var componentChannelObj = _.find(this.channels, function(ch) {
-        return 'component' === _.keys(ch)[0];
-      });
-      if (componentChannelObj) {
-        componentChannelObj['channel'] = componentChannelObj['component'];
-        delete componentChannelObj['component'];
-      } else {
-        componentChannelObj = { channel:  _.extend({}, Backbone.Events) };
-        this.channels.push(componentChannelObj);
+      if (!this.channels.component) {
+        this.channels.component = _.extend({}, Backbone.Events);
       }
-
-      this.componentChannel = componentChannelObj.channel;
+      this.componentChannel = this.channels.component;
     },
 
     // Embraces objects coming from `options`.

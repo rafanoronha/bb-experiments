@@ -14,9 +14,9 @@ define(
     var component = new Component({
       name: "developers/developers",
 
-      channels: [
-        { global: globalEvents }
-      ],
+      channels: {
+        global: globalEvents
+      },
 
       embrace: [
         router

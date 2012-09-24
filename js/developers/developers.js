@@ -36,7 +36,7 @@ define(
       });
 
       // When a dev is saved, navigate to /developers
-      this.global.on('model:post:save',function(model, resp) {
+      g.on('model:post:save',function(model, resp) {
         if (dev === model) {
           devList.add(dev);
           Marionette.AppRouter.prototype.navigate("developers", { trigger: true });
