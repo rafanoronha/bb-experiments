@@ -27,11 +27,11 @@ define(
 
   var Cart = function() {
     this.init = function() {
-      this.channel.on('goto:cart', function() {
+      this.channel.on('nav:cart', function() {
         show(); 
       });
 
-      this.channel.on('action:addToCart', function(product) {
+      this.channel.on('action:add', function(product) {
         add(product);
       });
    };

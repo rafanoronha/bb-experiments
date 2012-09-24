@@ -11,7 +11,7 @@ define(
     },
 
     shoppingCart: function() {
-      this.channel.trigger('goto:cart');
+      this.channel.trigger('nav:cart');
     }
 
   });

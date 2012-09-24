@@ -41,11 +41,11 @@ define(
         component: this.component
       };
 
-      this.channel.on('goto:products', function() {
+      this.channel.on('nav:index', function() {
         index(); 
       });
 
-      this.channel.on('goto:products:show', function(id) {
+      this.channel.on('nav:show', function(id) {
         show(id);
       });
    };

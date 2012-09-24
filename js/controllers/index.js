@@ -10,7 +10,7 @@ define(
   return {
 
     home: function(param) {
-      globalEvents.trigger('goto:home') 
+      globalEvents.trigger('nav:home') 
     }
 
   };

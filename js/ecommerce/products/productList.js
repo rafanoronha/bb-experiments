@@ -1,5 +1,4 @@
-define(
-  [
+define( [
    'backbone',
    'ecommerce/products/product',
    'lib/backbone-localStorage'

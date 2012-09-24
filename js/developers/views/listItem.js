@@ -10,6 +10,7 @@ define(
 
   return Marionette.ItemView.extend({
     tagName : 'tr',
+
     template : templates.developers.listItem,
 
     ui : {

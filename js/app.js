@@ -22,7 +22,7 @@ define(
   app.addInitializer(initializers.ecommerce.products);
   app.addInitializer(initializers.ecommerce.cart);
 
-  globalEvents.on('goto:home',function() {
+  globalEvents.on('nav:home',function() {
     app.content.show(new HomeView()); 
   });
 

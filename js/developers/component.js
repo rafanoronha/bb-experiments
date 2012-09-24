@@ -27,11 +27,11 @@ define(
  
   var Component = function() {
     this.init = function() {
-      this.channel.on('goto:developers', function() {
+      this.channel.on('nav:index', function() {
         index(); 
       });
 
-      this.channel.on('goto:developers:new', function() {
+      this.channel.on('nav:new', function() {
         newDeveloper(); 
       });
 

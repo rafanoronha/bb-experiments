@@ -12,12 +12,12 @@ define(
     },
 
     todos: function(param) {
-      this.channel.trigger('goto:todo') 
+      this.channel.trigger('nav:index') 
     },
 
     setFilter : function(param) {
       var filter = param.replace(/todos\//, '');
-      this.channel.trigger('todoList:filter', filter || '');
+      this.channel.trigger('nav:filter', filter || '');
     },
 
   });

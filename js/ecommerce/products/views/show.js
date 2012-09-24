@@ -16,7 +16,7 @@ define(
     },
 
     addToCart: function(model) {
-      this.channels.cart.trigger('action:addToCart', model);
+      this.channels.cart.trigger('action:add', model);
       return false;
     }
 

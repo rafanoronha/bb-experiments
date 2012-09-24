@@ -12,11 +12,11 @@ define(
     },
 
     developers: function(param) {
-      this.channel.trigger('goto:developers');
+      this.channel.trigger('nav:index');
     },
 
     newDeveloper: function(param) {
-      this.channel.trigger('goto:developers:new');
+      this.channel.trigger('nav:new');
     }
 
   });

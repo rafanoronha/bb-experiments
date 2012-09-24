@@ -12,11 +12,11 @@ define(
     },
 
     products: function(param) {
-      this.channel.trigger('goto:products');
+      this.channel.trigger('nav:index');
     },
 
     showProduct: function(id) {
-      this.channel.trigger('goto:products:show', id);
+      this.channel.trigger('nav:show', id);
     }
 
   });

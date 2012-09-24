@@ -25,7 +25,7 @@ define(
     },
 
     initialize : function() {
-      this.bindTo(this.channel, 'todoList:filter', this.updateFilterSelection, this);
+      this.bindTo(this.channel, 'nav:filter', this.updateFilterSelection, this);
     },
 
     onRender : function() {
@@ -43,7 +43,7 @@ define(
     },
 
     onClearClick : function() {
-      this.channel.trigger('todoList:clear:completed');
+      this.channel.trigger('action:clearCompleted');
     }
 
   });

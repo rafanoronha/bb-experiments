@@ -32,16 +32,16 @@ define(
   var TodoApp = function() {
     this.init = function() {
 
-      this.channel.on('goto:todo', function() {
+      this.channel.on('nav:index', function() {
         index(); 
       });
 
-      this.channel.on('todoList:filter',function(filter) {
+      this.channel.on('nav:filter',function(filter) {
         filter = filter || 'all';
         $('#todoapp').attr('class', 'filter-' + filter);
       });
 
-      this.channel.on('todoList:clear:completed',function(){
+      this.channel.on('action:clearCompleted',function(){
         function destroy(todo) { todo.destroy(); }
         todoList.getCompleted().forEach(destroy);
       });
